@@ -3,6 +3,7 @@
 use App\Http\Controllers\student;
 use App\Http\Controllers\teacher;
 use App\Http\Controllers\course;
+use App\Http\Controllers\batche;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,14 @@ Route::controller(teacher::class)->group(function () {
     Route::get('teachers/edit/{id}', 'edit');
     Route::post('teachers-update/{id}', 'update_teacher');
     Route::get('teachers/delete/{id}', 'delete');
+});
+Route::controller(batche::class)->group(function () {
+    Route::get('batchess/show', 'show');
+    Route::post('batchess/submit', 'submit');
+    Route::get('batchess/add', 'add');
+    Route::get('batchess/edit/{id}', 'edit');
+    Route::post('batchess-update/{id}', 'update_batche');
+    Route::get('batchess/delete/{id}', 'delete');
 });
 Route::controller(course::class)->group(function () {
     Route::get('courses/show', 'show');

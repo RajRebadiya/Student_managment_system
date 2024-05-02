@@ -46,7 +46,7 @@
                     <a href="{{url('show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Students</a>
                     <a href="{{url('teachers/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Teachers</a>
                     <a href="{{url('courses/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Course</a>
-                    <a href="#" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Batches</a>
+                    <a href="{{url('batchess/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Batches</a>
                     <a href="#" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Enrollement</a>
                     <a href="#" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Payment</a>
                   </div>
