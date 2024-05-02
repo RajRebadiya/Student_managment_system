@@ -28,7 +28,7 @@ Add teachers
 
 
         <div class="data text-end">
-            <a href="{{ url('add')}}"><button class="btn btn-primary mb-2">Add teacher</button></a>
+            <a href="{{ url('teachers/add')}}"><button class="btn btn-primary mb-2">Add teacher</button></a>
 
         </div>
       <table class="table table-bordered table-striped  table-hover table-responsive ">

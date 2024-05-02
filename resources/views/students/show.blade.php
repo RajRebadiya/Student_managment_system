@@ -28,7 +28,7 @@ Add Students
 
 
         <div class="data text-end">
-            <a href="{{ url('add')}}"><button class="btn btn-primary mb-2">Add Student</button></a>
+            <a href="{{ url('students/add')}}"><button class="btn btn-primary mb-2">Add Student</button></a>
 
         </div>
       <table class="table table-bordered table-striped  table-hover table-responsive ">
@@ -43,15 +43,21 @@ Add Students
           </tr>
         </thead>
         <tbody>
+          <?php
+            $count = 1;
+          ?>
             @foreach ($data as $item)
             <tr>
-              <th scope="row">{{$item->id}}</th>
+              <th scope="row">{{$count}}</th>
               <td>{{$item->name}}</td>
               <td>{{$item->age}}</td>
               <td>{{$item->city}}</td>
-              <td><a href="{{url('edit/'.$item->id)}}"><button class='btn btn-warning'>Edit</button></a></td>
-              <td><a href="{{url('delete/'.$item->id)}}"><button class='btn btn-danger'>Delete</button></a></td>
+              <td><a href="{{url('students/edit/'.$item->id)}}"><button class='btn btn-warning'>Edit</button></a></td>
+              <td><a href="{{url('students/delete/'.$item->id)}}"><button class='btn btn-danger'>Delete</button></a></td>
             </tr>
+            <?php
+              $count++;
+            ?>
             @endforeach
           
         </tbody>

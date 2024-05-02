@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card text-center">
-    <form action="{{url('submit')}}" method="post">
+    <form action="{{url('teachers/submit')}}" method="post">
         @csrf
         <div class="card-body d-flex justify-content-center align-items-center flex-column">
             <div class="row">

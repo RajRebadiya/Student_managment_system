@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="w3-sidebar w3-bar-block" style="width:25%">
-                    <a href="{{url('show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Students</a>
+                    <a href="{{url('students/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Students</a>
                     <a href="{{url('teachers/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Teachers</a>
                     <a href="{{url('courses/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Course</a>
                     <a href="{{url('batchess/show')}}" class="w3-bar-item w3-buttonw3-bar-item w3-button w3-hover-blue">Batches</a>

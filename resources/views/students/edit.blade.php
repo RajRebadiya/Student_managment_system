@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card text-center">
-    <form action="{{url('student-update')}}/{{$data->id}}" method="post"> 
+    <form action="{{url('students/student-update')}}/{{$data->id}}" method="post"> 
         @csrf
         <div class="card-body d-flex justify-content-center align-items-center flex-column">
             <div class="row">

@@ -25,7 +25,7 @@ class student extends Controller
         $data->city = $req->city;
         $data->save();
         $data = students::all();
-        return redirect('/show')->with('success', 'Student Add Successfully');
+        return redirect('students/show')->with('success', 'Student Add Successfully');
     }
     public function edit($id)
     {
@@ -55,7 +55,7 @@ class student extends Controller
         // return view('students.show', ['data' => $data]);
         // $data = students::all();
         // return redirect()->Route('students/show')->with('up_success', 'Student updated successfully.');
-        return redirect('show')->with(['up_success' => 'Student updated successfully.', 'data' => $data]);
+        return redirect('students/show')->with(['up_success' => 'Student updated successfully.', 'data' => $data]);
     }
     public function delete($id)
     {

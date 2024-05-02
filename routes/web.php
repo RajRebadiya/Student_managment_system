@@ -28,16 +28,19 @@ Route::view('home', 'home');
 // });
 
 Route::controller(student::class)->group(function () {
-    Route::get('show', 'show');
-    Route::post('submit', 'submit');
-    Route::get('edit/{id}', 'edit');
-    Route::post('student-update/{id}', 'update_student');
-    Route::get('delete/{id}', 'delete');
-    Route::get('user-list', 'data_show');
+    Route::get('students/show', 'show');
+    Route::post('students/submit', 'submit');
+    Route::get('students/edit/{id}', 'edit');
+    Route::post('students/student-update/{id}', 'update_student');
+    Route::get('students/delete/{id}', 'delete');
+    // Route::get('user-list', 'data_show');
 });
 // Route::view('show', 'students.show');
-Route::get('/add', function () {
+Route::get('students/add', function () {
     return view('students.add');
+});
+Route::get('teachers/add', function () {
+    return view('teachers.add');
 });
 // Route::get('courses/add', function () {
 //     return view('courses.add');
@@ -45,7 +48,8 @@ Route::get('/add', function () {
 
 Route::controller(teacher::class)->group(function () {
     Route::get('teachers/show', 'show');
-    Route::post('submit', 'submit');
+    Route::post('teachers/submit', 'submit');
+    // Route::get('teachers/add', 'add');
     Route::get('teachers/edit/{id}', 'edit');
     Route::post('teachers-update/{id}', 'update_teacher');
     Route::get('teachers/delete/{id}', 'delete');
