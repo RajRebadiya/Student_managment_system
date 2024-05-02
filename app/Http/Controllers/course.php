@@ -17,29 +17,42 @@ class course extends Controller
     // //
     public function show()
     {
-        $data = courses::all();
+        $data = courses::join('teacher', 'course.t_id', '=', 'teacher.id')->get(['course.id', 'course.name as c_name', 'teacher.name as t_name',]);
         // $id = teachers::with('id')->get();
         // return redirect('courses/show')->with(['data' => $data]);
         return view('courses.show', ['data' => $data]);
+    }
+    public function add()
+    {
+        $data = courses::join('teacher', 'course.t_id', '=', 'teacher.id')->get(['course.id', 'course.name as c_name', 'teacher.name as t_name',]);
+        // $id = teachers::with('id')->get();
+        // return redirect('courses/show')->with(['data' => $data]);
+        return view('courses.add', ['data' => $data]);
     }
 
     public function submit(Request $req)
     {
 
-        $data = new courses();
-        $data->name = $req->name;
-        $data->age = $req->age;
-        $data->city = $req->city;
-        $data->save();
+        $course = new courses();
+        $teacherName = $req->input('teacher_name');
+        // dd($teacherName);
+        $teacher = teachers::where('name', $teacherName)->first();
+        // dd($teacher);
+        $course->name = $req->name;
+
+        $course->t_id = $teacher->id;
+
+        $course->save();
         $data = courses::all();
-        return redirect('courses/show')->with('success', 'course Add Successfully');
+        return redirect('courses/show')->with(['success' => 'course Add Successfully', 'data' => $data]);
     }
     public function edit($id)
     {
-        $courses = courses::find($id);
-        return view('courses.edit', ['data' => $courses]);
+        $courses = courses::join('teacher', 'course.t_id', '=', 'teacher.id')->get(['course.id', 'course.name as c_name', 'teacher.name as t_name',])->find($id);
+        $courses_2 = courses::join('teacher', 'course.t_id', '=', 'teacher.id')->get(['course.id', 'course.name as c_name', 'teacher.name as t_name',]);
+        return view('courses.edit', ['data' => $courses], ['data_2' => $courses_2]);
     }
-    public function update_course(Request $req, $id)
+    public function update_courses(Request $req, $id)
     {
         // Find the course record by ID
         $course = courses::find($id);
@@ -48,11 +61,10 @@ class course extends Controller
             // Handle case where course is not found
             return redirect()->back()->with('error', 'course not found.');
         }
-
+        $teacher = teachers::where('name', $req->teacher_name)->first();
         // Update the course record with the request data
-        $course->name = $req->input('name');
-        $course->age = $req->input('age');
-        $course->city = $req->input('city');
+        $course->name = $req->name;
+        $course->t_id = $teacher->id; // Set the teacher id
         $course->save();
 
         // Optionally retrieve all courses data again (you might not need this depending on your requirements)

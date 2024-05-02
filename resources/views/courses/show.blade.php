@@ -43,17 +43,14 @@ Add courses
           </tr>
         </thead>
         <tbody>
+          
           @foreach ($data as $item)
           <tr>
               <th scope="row">{{$item->id}}</th>
-              <td>{{$item->name}}</td>
-              <td>
-                  @if ($item->teacher)
-                      {{$item->teacher->name}}
-                  @else
-                      No Teacher Assigned
-                  @endif
-              </td>
+              <td>{{$item->c_name}}</td>
+              
+               <td>{{$item->t_name}}</td>
+              
               <td>
                   <a href="{{url('courses/edit/'.$item->id)}}" class="btn btn-warning">Edit</a>
               </td>

@@ -38,9 +38,9 @@ Route::controller(student::class)->group(function () {
 Route::get('/add', function () {
     return view('students.add');
 });
-Route::get('courses/add', function () {
-    return view('courses.add');
-});
+// Route::get('courses/add', function () {
+//     return view('courses.add');
+// });
 
 Route::controller(teacher::class)->group(function () {
     Route::get('teachers/show', 'show');
@@ -52,6 +52,7 @@ Route::controller(teacher::class)->group(function () {
 Route::controller(course::class)->group(function () {
     Route::get('courses/show', 'show');
     Route::post('submit', 'submit');
+    Route::get('courses/add', 'add');
     Route::get('courses/edit/{id}', 'edit');
     Route::post('courses-update/{id}', 'update_courses');
     Route::get('courses/delete/{id}', 'delete');
